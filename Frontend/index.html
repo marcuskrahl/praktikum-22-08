@@ -51,7 +51,7 @@
       hast:
     </p>
     <span id="addkeks">
-      Trage hier deine Bestellnummer ein(sechsstellig):</p><input name="Kaufnummer" type="text" id="Kauf_Nummer">
+      Trage hier deine Bestellnummer ein(sechsstellig):</p><input name="Kaufnummer" type="text" id="Kauf_Nummer" maxlength="3">
       <button type="button" onclick="KaufNummer()" id="Button1">Senden</button>
     </span>
 
@@ -92,7 +92,7 @@
     console.log(eingelösteBestellnummern)
     let eingelöst = eingelösteBestellnummern.find(Nummer=>Nummer===Kauf_Nummer)
     if (eingelöst) {
-      alert('Diese Nummer ist nicht gültig!')
+      alert('Diese Nummer ist nicht gültig! Das liegt entweder daran, dass zu dem Code kein Kauf zugeordnet werden konnte oder der Code bereits abgelaufen/benutzt wurde')
     } else {
       eingelösteBestellnummern.push(...[Kauf_Nummer])
 
