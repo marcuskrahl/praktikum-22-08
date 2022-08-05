@@ -3,94 +3,79 @@
 
 
 
-  <head>
-    <link rel="stylesheet" href="stylesheet.css"
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glückskeks.mms</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet"> 
+<head>
+  <link rel="stylesheet" href="stylesheet.css" <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glückskeks.mms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
 
-  </head>
-  
-  <body>
-    <nav>
-      <ul>
+</head>
 
-          <li><a class="active" href="index.html">Home</a></li>
-          <li><a href="#kaufen">Kaufen</a></li>
-          <li><a href="#Selbstgestaltung">Selbstgestaltung</a></li>
-          <li><a href="#Großbestellung">Großbestellung</a></li>
-        </ul>
-   </nav>
-        <h1>
-            Glückskeks.mss - Dein Anbieter für digitale Glückskekse
-        </h1>
-        <main>
-            <h3>
-                Täglich kannst du hier einen neuen Glückskeks mit einem neuen Spruch öffnen. 
-            </h3>
-        
-            <div class="Spruch_Keks">
-              <img src="images/GK.jpg" alt="" id="myPic"> 
-              <div class="main">
-              <p id="result" class="hidden"    style="font-family: 'Patrick Hand', cursive;"></p>
-              </div>
-              <img src="images/GK_rechts.png" id="GK_rechts" class="hidden"> <br>
-            </div>
-      
-            <input type="button" value="Jetzt Glückskeks öffnen" onclick="tausch()" id="button">
-    
-    
-            <!-- <button onclick="myFunction()" id="select" class="hidden">Spruch lesen</button> -->
+<body>
+  <nav>
+    <ul>
 
-            <p> 
-              Wenn du noch mehr Glückkekse digital öffnen willst, dann kaufe bei uns ein! Für jeden Keks, den du bei uns bestellst, kannst du kostenlos jeden Tag einen weiteren öffnen. <br> Trage hier ein, wie viele Kekse du bestellt hast:
-            </p>
+      <li><a class="active" href="index.html">Home</a></li>
+      <li><a href="#kaufen">Kaufen</a></li>
+      <li><a href="#Selbstgestaltung">Selbstgestaltung</a></li>
+      <li><a href="#Großbestellung">Großbestellung</a></li>
+    </ul>
+  </nav>
+  <h1>
+    Glückskeks.mss - Dein Anbieter für digitale Glückskekse
+  </h1>
+  <main>
+    <h3>
+      Täglich kannst du hier einen neuen Glückskeks mit einem neuen Spruch öffnen.
+    </h3>
 
-              Trage hier deine Bestellnummer ein(sechsstellig):</p><input name="Kaufnummer" type="text" id="Kauf_Nummer"> <button type="button" onclick="KaufNummer()" id="Button1">Senden</button>
+    <div class="Spruch_Keks">
+      <img src="images/GK.jpg" alt="" id="myPic">
+      <div class="main">
+        <p id="result" class="hidden" style="font-family: 'Patrick Hand', cursive;"></p>
+      </div>
+      <img src="images/GK_rechts.png" id="GK_rechts" class="hidden"> <br>
+    </div>
+
+    <input type="button" value="Jetzt Glückskeks öffnen" onclick="tausch()" id="button">
+    <button type="button" onclick="Kontostand()" id="Kontostand">Kontostand anzeigen</button>
 
 
-      <section id="kaufen">
-        <h3>
-          Glückskekse kaufen
-        </h3>
-        <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+    <!-- <button onclick="myFunction()" id="select" class="hidden">Spruch lesen</button> -->
 
-          Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
-          
-          Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
-          
-          Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.   
-          
-          Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.   
-          
-          At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.   
-          
-          Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus.   
-          
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
-          
-          Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
-          
-          Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
-          
-          Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+    <p>
+      Wenn du noch mehr Glückkekse digital öffnen willst, dann kaufe bei uns ein! Für jeden Keks, den du bei uns
+      bestellst, kannst du kostenlos jeden Tag einen weiteren öffnen. <br> Trage hier ein, wie viele Kekse du bestellt
+      hast:
+    </p>
+    <span id="addkeks">
+      Trage hier deine Bestellnummer ein(sechsstellig):</p><input name="Kaufnummer" type="text" id="Kauf_Nummer">
+      <button type="button" onclick="KaufNummer()" id="Button1">Senden</button>
+    </span>
 
-        </p>
-      </section>
 
-      <section id="Selbstgestaltung">
-        <h3>
-          Glückskekse Selbst Gestalten
-        </h3>
-      </section>
 
-      </main>
+    <section id="kaufen">
+      <h3>
+        Glückskekse kaufen
+      </h3>
+      <p>
 
-  </body>
+      </p>
+    </section>
+
+    <section id="Selbstgestaltung">
+      <h3>
+        Glückskekse Selbst Gestalten
+      </h3>
+    </section>
+
+  </main>
+
+</body>
+
 </html>
 
 
@@ -98,103 +83,162 @@
 
 
 <script>
+  let eingelösteBestellnummern = [];
+  
 
-  
-  
-  function KaufNummer () {
+  let Kekskonto = 0
+  function KaufNummer() {
     let Kauf_Nummer = document.getElementById('Kauf_Nummer').value;
-    if (Kauf_Nummer.startsWith(1)) {
-      alert('testtt')
-      document.getElementById('Button1').style.background ='#123456';
-    }
-    if (Kauf_Nummer.startsWith(2)){
-      alert('Danke dafür,dass du zwei Kekse gekauft hast! Viel Spaß und Freude damit')
-    }
-     
-    if (Kauf_Nummer.startsWith(3)){
-      alert('Danke, dass du  3  Kekse gekauft hast!')
-      let Kekskonto = Kekskonto + 3
-    }
-    
-    if (Kauf_Nummer.startsWith(4)){
-      alert('Danke, dass du  4  Kekse gekauft hast!')
-      let Kekskonto = Kekskonto + 4
-    }
+    console.log(eingelösteBestellnummern)
+    let eingelöst = eingelösteBestellnummern.find(Nummer=>Nummer===Kauf_Nummer)
+    if (eingelöst) {
+      alert('Diese Nummer ist nicht gültig!')
+    } else {
+      eingelösteBestellnummern.push(...[Kauf_Nummer])
 
-    if (Kauf_Nummer.startsWith(5)){
-      alert('Danke, dass du  5  Kekse gekauft hast!')
-      let Kekskonto = Kekskonto + 5
-    }
+      switch (parseInt(Kauf_Nummer.charAt(0))) {
+        case 1:
+          Kekskonto = Kekskonto + 1;
+          break;
+        case 2:
+          Kekskonto = Kekskonto + 2
+          break;
+        case 3:
+          Kekskonto = Kekskonto + 3
+          break;
+        case 4:
+          Kekskonto = Kekskonto + 4
+          break;
+        case 5:
+          Kekskonto = Kekskonto + 5
+          break;
+        case 6:
+          Kekskonto = Kekskonto + 6;
+          break;
+        case 7:
+          Kekskonto = Kekskonto + 7;
+        case 8:
+          Kekskonto = Kekskonto + 8;
+        case 9:
+          Kekskonto = Kekskonto + 9;
+        default:
+          Kekskonto = Kekskonto + 0;
+      }
 
-    if (Kauf_Nummer.startsWith(6)){
-      alert('Danke, dass du  6  Kekse gekauft hast!')
-      let Kekskonto = Kekskonto + 6
-    }
 
-    if (Kauf_Nummer.startsWith(7)){
-      alert('Danke, dass du  7  Kekse gekauft hast!')
-      let Kekskonto = Kekskonto + 7
+      alert('Erfolgreich ' + Kauf_Nummer.charAt(0) + 'Kekse hinzugefügt')
+      alert('Dein aktueller digialkekskontostand beträgt:' + Kekskonto)
+      return Kekskonto;
     }
-
-    if (Kauf_Nummer.startsWith(8)){
-      alert('Danke, dass du  8  Kekse gekauft hast!')
-      let Kekskonto = Kekskonto + 8
-    }
-
-    if (Kauf_Nummer.startsWith(9)){
-      alert('Danke, dass du  9  Kekse gekauft hast!')
-      let Kekskonto = Kekskonto + 9
-    }
-
   }
-  
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+
+
+
+
+
+
+    // if (Kauf_Nummer.startsWith(1)) {
+    //   alert('Danke')
+    //   document.getElementById('Button1').style.background ='#123456';
+    //   Kekskonto = Kekskonto + 1
+    // }
+    // if (Kauf_Nummer.startsWith(2)){
+    //   alert('Danke dafür,dass du zwei Kekse gekauft hast! Viel Spaß und Freude damit')
+    //   Kekskonto = Kekskonto + 2
+    // }
+
+    // if (Kauf_Nummer.startsWith(3)){
+    //   alert('Danke, dass du  3  Kekse gekauft hast!')
+    //   Kekskonto = Kekskonto + 3
+    // }
+
+    // if (Kauf_Nummer.startsWith(4)){
+    //   alert('Danke, dass du  4  Kekse gekauft hast!')
+    //    Kekskonto = Kekskonto + 4
+    // }
+
+    // if (Kauf_Nummer.startsWith(5)){
+    //   alert('Danke, dass du  5  Kekse gekauft hast!')
+    //    Kekskonto = Kekskonto + 5
+    // }
+
+    // if (Kauf_Nummer.startsWith(6)){
+    //   alert('Danke, dass du  6  Kekse gekauft hast!')
+    //    Kekskonto = Kekskonto + 6
+    // }
+
+    // if (Kauf_Nummer.startsWith(7)){
+    //   alert('Danke, dass du  7  Kekse gekauft hast!')
+    //    Kekskonto = Kekskonto + 7
+
+    // }
+
+    // if (Kauf_Nummer.startsWith(8)){
+    //   alert('Danke, dass du  8  Kekse gekauft hast!')
+    //    Kekskonto = Kekskonto + 8
+
+    // }
+
+    // if (Kauf_Nummer.startsWith(9)){
+    //   alert('Danke, dass du  9  Kekse gekauft hast!')
+    //    Kekskonto = Kekskonto + 9
+
+    // }
+
  
   
-  
-  
-  
-  
-  
-  function myFunction () {
 
-   
+  function Kontostand() {
+    alert('Dein aktueller Kontostand beträgt: ' + Kekskonto)
+  }
+
+  function Konto(Kekskonto) {
+    document.getElementById('Konto').innerHTML = Kekskonto;
+  }
+
+
+  //  eingelösteBestellnummern.push 
+  //  eingelösteBestellnummern.pop
+
+
+
+
+  
+
+
+
+  function myFunction() {
+
+
 
   }
-function tausch(){
-document.getElementById("myPic").setAttribute("src", "images/Gk_links.png");
-document.getElementById("GK_rechts").classList.remove("hidden")
-document.getElementById("button").classList.add("hidden")
-document.getElementById("result").classList.remove("hidden")
+  function tausch() {
+    document.getElementById("myPic").setAttribute("src", "images/Gk_links.png");
+    document.getElementById("GK_rechts").classList.remove("hidden")
+    console.log(Kekskonto)
+    if (Kekskonto === 0) {
+      document.getElementById("button").classList.add("hidden")
+    } else {
+      Kekskonto = -1 + Kekskonto;
+      console.log(Kekskonto)
+    }
+    document.getElementById("result").classList.remove("hidden")
 
 
-var text = [
-  "Hier könnte Ihre Werbung stehen. ~ Unbekannt",
-  "„Wer lächelt statt zu toben, ist immer der Stärkere.“ ~ japanische Weisheit",
-  "„Gewohnheiten sind zuerst Spinnweben - dann Drähte.“ ~ Alte fernöstliche Weisheit",
-  "„Betrachte den Fluss Deines Lebens und erkenne, wie viele Ströme in ihn münden, die Dich nähren und unterstützen.“ ~ Thich Nhat Hanh ",
-  "„Der Mensch ist dazu geboren, großes zu leisten, wenn er versteht, sich selbst zu besiegen.“ ~ Bruce Lee"
-];
+    var text = [
+      "Hier könnte Ihre Werbung stehen. ~ Unbekannt",
+      "„Wer lächelt statt zu toben, ist immer der Stärkere.“ ~ japanische Weisheit",
+      "„Gewohnheiten sind zuerst Spinnweben - dann Drähte.“ ~ Alte fernöstliche Weisheit",
+      "„Betrachte den Fluss Deines Lebens und erkenne, wie viele Ströme in ihn münden, die Dich nähren und unterstützen.“ ~ Thich Nhat Hanh ",
+      "„Der Mensch ist dazu geboren, großes zu leisten, wenn er versteht, sich selbst zu besiegen.“ ~ Bruce Lee"
+    ];
 
 
-  document.getElementById("result").innerHTML = text[Math.floor(Math.random() * text.length)];
- document.getElementById("select").classList.add("hidden")
- document.getElementByID("result").classList.add("Hintergrund")
+    document.getElementById("result").innerHTML = text[Math.floor(Math.random() * text.length)];
+    document.getElementById("select").classList.add("hidden")
+    document.getElementByID("result").classList.add("Hintergrund")
 
 
-}
+  }
 
 </script>
-
-
-
