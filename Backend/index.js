@@ -2,6 +2,29 @@
  * BACKEND 
  */
 
+function keks_öffnen 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const express = require('express')
 const app = express()
 const port = 8080
@@ -40,3 +63,19 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
 // db.close();
+
+
+
+
+<script>
+
+async function login() {
+	let body = JSON.stringify({username: 'test123', password: 'test123'});
+	let response = await fetch('/api/login', { method: 'POST', body: body , headers: {'Content-Type':'application/json'}});
+	if (response.status === 401) {
+		//fehlgeschlagen
+	} else {
+		//erfolgreich
+	}
+}
+</script>
