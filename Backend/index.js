@@ -2,7 +2,6 @@
  * BACKEND 
  */
 
-// function keks_öffnen 
 
 
 
@@ -11,31 +10,17 @@
 
 
 
+const express = require('express')
+const app = express()
+const port = 8080
+const sqlite3 = require('sqlite3').verbose();
+const { select, insert, update, deleteRow} = require('./db_utilities');
+const db = new sqlite3.Database('Datenbank/daten.sqlite');
+
+app.use(express.json())
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-// const express = require('express')
-// const app = express()
-// const port = 8080
-// const sqlite3 = require('sqlite3').verbose();
-// const { select, insert, update, deleteRow} = require('./db_utilities');
-// const db = new sqlite3.Database('Datenbank/daten.sqlite');
-
-// app.use(express.json())
-
-
-// /* Hier beginnen die Backend Methoden - erreichbar unter http://localhost:8080/api */
+/* Hier beginnen die Backend Methoden - erreichbar unter http://localhost:8080/api */
 
 // app.get('/api/', (req, res) => {
 //   res.send(`<h1>${new Date}</h1>`);
@@ -55,27 +40,17 @@
 // 	}
 // });
 
-// /* Hier enden die Backend Methoden */
+/* Hier enden die Backend Methoden */
 
-// app.use(express.static('Frontend'));
+app.use(express.static('Frontend'));
 
-// app.listen(port, () => {
-//   console.log(`Example app listening on port ${port}`)
-// })
-// // db.close();
-
-
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
+// db.close();
 
 
-// <script>
 
-// async function login() {
-// 	let body = JSON.stringify({username: 'test123', password: 'test123'});
-// 	let response = await fetch('/api/login', { method: 'POST', body: body , headers: {'Content-Type':'application/json'}});
-// 	if (response.status === 401) {
-// 		//fehlgeschlagen
-// 	} else {
-// 		//erfolgreich
-// 	}
-// }
-// </script>
+
+
+
