@@ -1,0 +1,98 @@
+h1 {
+  text-align: center;
+  color:#e20074
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+li {
+  flex-grow: 1;
+ 
+}
+
+
+li a {
+  font-family:'Courier New', Courier, monospace;
+  font-size: 40px;
+  display: block;
+  color: #e20074;
+  text-align: center;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+
+a {
+  color: #e20074;
+  border: #e20074;
+
+  border-width: 4px;
+}
+
+
+
+.Spruch_Keks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#result {
+  background-color:blanchedalmond;
+  box-shadow: 10px 7px 8px 3px #00000042;
+  max-width: 800px;
+  transition: all 1s;
+  transform: scale(1);
+  font-size: 30px
+  
+}
+
+#result:hover {
+transform: scale(110%);
+}
+
+
+#result.hidden { 
+  transform: scale(0);
+  display: initial;
+  box-shadow: none;
+  max-width: 0px;
+  font-size: 0;
+}
+
+
+
+.hidden {
+display: none;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.Hintergrund{
+  background-color: beige;
+}
+
+
+
+main {
+text-align: center;
+
+}
+
+
+
