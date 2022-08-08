@@ -112,51 +112,63 @@
   let eingelösteBestellnummern = [];
   
 
-  var Kekskonto = 0
+  var Kekskonto = 1
   function KaufNummer() {
     let Kauf_Nummer = document.getElementById('Kauf_Nummer').value;
     console.log(eingelösteBestellnummern)
     let eingelöst = eingelösteBestellnummern.find(Nummer=>Nummer===Kauf_Nummer)
+
     if (eingelöst) {
-      alert('Diese Nummer ist nicht gültig! Das liegt entweder daran, dass zu dem Code kein Kauf zugeordnet werden konnte oder der Code bereits abgelaufen/benutzt wurde')
+      alert('Diese Nummer ist nicht gültig! Das liegt entweder daran, dass zu dem Code kein Kauf zugeordnet werden konnte oder der Code bereits abgelaufen ist bzw. benutzt wurde')
+    
+
+    
+
     } else {
       eingelösteBestellnummern.push(...[Kauf_Nummer])
 
       switch (parseInt(Kauf_Nummer.charAt(0))) {
         case 1:
           Kekskonto = Kekskonto + 1;
+          alert('Erfolgreich 1 Keks hinzugefügt')
           break;
         case 2:
           Kekskonto = Kekskonto + 2
+          alert('Erfolgreich 2 Kekse hinzugefügt')
           break;
         case 3:
           Kekskonto = Kekskonto + 3
+          alert('Erfolgreich 3 Kekse hinzugefügt')
           break;
         case 4:
           Kekskonto = Kekskonto + 4
+          alert('Erfolgreich 4 Kekse hinzugefügt')
           break;
         case 5:
           Kekskonto = Kekskonto + 5
+          alert('Erfolgreich 5 Kekse hinzugefügt')
           break;
         case 6:
           Kekskonto = Kekskonto + 6;
+          alert('Erfolgreich 6 Kekse hinzugefügt')
           break;
         case 7:
           Kekskonto = Kekskonto + 7;
+          alert('Erfolgreich 7 Kekse hinzugefügt')
         case 8:
           Kekskonto = Kekskonto + 8;
+          alert('Erfolgreich 8 Kekse hinzugefügt')
         case 9:
           Kekskonto = Kekskonto + 9;
+          alert('Erfolgreich 9 Kekse hinzugefügt')
         default:
-          Kekskonto = Kekskonto + 0;
+          alert('Du musst eine Nummer eingeben!');
       }
+    }
 
-
-      alert('Erfolgreich ' + Kauf_Nummer.charAt(0) + 'Kekse hinzugefügt')
-      alert('Dein aktueller digialkekskontostand beträgt:' + Kekskonto)
       return Kekskonto;
     }
-  }
+  
 
 
 
@@ -196,7 +208,7 @@
     document.getElementById("GK_rechts").classList.remove("hidden")
     console.log(Kekskonto)
     if (Kekskonto === 0) {
-      document.getElementById("button").classList.add("hidden")
+      alert('Aktuell hast du alle deine Kekse verbraucht. Wenn du noch mehr Kekse öffnen willst, kannst du dir im Onlineshop neue kaufen!')
     } else {
       Kekskonto = -1 + Kekskonto;
       console.log(Kekskonto)
