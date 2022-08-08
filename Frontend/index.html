@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
 </head>
 
@@ -72,6 +73,14 @@
       </h3>
     </section>
 
+
+
+  
+
+
+
+
+
   </main>
 
 </body>
@@ -83,10 +92,27 @@
 
 
 <script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   let eingelösteBestellnummern = [];
   
 
-  let Kekskonto = 0
+  var Kekskonto = 0
   function KaufNummer() {
     let Kauf_Nummer = document.getElementById('Kauf_Nummer').value;
     console.log(eingelösteBestellnummern)
@@ -137,53 +163,6 @@
 
 
 
-    // if (Kauf_Nummer.startsWith(1)) {
-    //   alert('Danke')
-    //   document.getElementById('Button1').style.background ='#123456';
-    //   Kekskonto = Kekskonto + 1
-    // }
-    // if (Kauf_Nummer.startsWith(2)){
-    //   alert('Danke dafür,dass du zwei Kekse gekauft hast! Viel Spaß und Freude damit')
-    //   Kekskonto = Kekskonto + 2
-    // }
-
-    // if (Kauf_Nummer.startsWith(3)){
-    //   alert('Danke, dass du  3  Kekse gekauft hast!')
-    //   Kekskonto = Kekskonto + 3
-    // }
-
-    // if (Kauf_Nummer.startsWith(4)){
-    //   alert('Danke, dass du  4  Kekse gekauft hast!')
-    //    Kekskonto = Kekskonto + 4
-    // }
-
-    // if (Kauf_Nummer.startsWith(5)){
-    //   alert('Danke, dass du  5  Kekse gekauft hast!')
-    //    Kekskonto = Kekskonto + 5
-    // }
-
-    // if (Kauf_Nummer.startsWith(6)){
-    //   alert('Danke, dass du  6  Kekse gekauft hast!')
-    //    Kekskonto = Kekskonto + 6
-    // }
-
-    // if (Kauf_Nummer.startsWith(7)){
-    //   alert('Danke, dass du  7  Kekse gekauft hast!')
-    //    Kekskonto = Kekskonto + 7
-
-    // }
-
-    // if (Kauf_Nummer.startsWith(8)){
-    //   alert('Danke, dass du  8  Kekse gekauft hast!')
-    //    Kekskonto = Kekskonto + 8
-
-    // }
-
-    // if (Kauf_Nummer.startsWith(9)){
-    //   alert('Danke, dass du  9  Kekse gekauft hast!')
-    //    Kekskonto = Kekskonto + 9
-
-    // }
 
  
   
@@ -212,7 +191,7 @@
 
 
   }
-  function tausch() {
+  async function tausch() {
     document.getElementById("myPic").setAttribute("src", "images/Gk_links.png");
     document.getElementById("GK_rechts").classList.remove("hidden")
     console.log(Kekskonto)
@@ -233,8 +212,9 @@
       "„Der Mensch ist dazu geboren, großes zu leisten, wenn er versteht, sich selbst zu besiegen.“ ~ Bruce Lee"
     ];
 
-
-    document.getElementById("result").innerHTML = text[Math.floor(Math.random() * text.length)];
+    var response = await fetch('/test/')
+    var auswahl = await response.text()
+    document.getElementById("result").innerHTML = auswahl
     document.getElementById("select").classList.add("hidden")
     document.getElementByID("result").classList.add("Hintergrund")
 

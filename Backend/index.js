@@ -22,9 +22,16 @@ app.use(express.json())
 
 /* Hier beginnen die Backend Methoden - erreichbar unter http://localhost:8080/api */
 
-// app.get('/api/', (req, res) => {
-//   res.send(`<h1>${new Date}</h1>`);
-// });
+app.get('/api/', function (req, res) {
+  res.send(`<h1>${new Date}</h1>`);
+});
+
+app.get('/test/', async function testspruch (req, res) {
+  let sprüche = await select(db, 'Sprueche');
+
+  var spruchselect = sprüche[Math.floor(Math.random() * sprüche.length)]
+  res.send(spruchselect.Sprueche + '~' + spruchselect.Autor);
+})
 
 // app.post('/api/login', async (req, res) => {
 // 	let userdaten = await select(db, 'userdaten');
