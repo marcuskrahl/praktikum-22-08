@@ -1,13 +1,14 @@
 
 const fs = require('fs');
 
-const template = fs.readFileSync('Frontend/template.html', { encoding: 'utf-8'});
+
 
 function templateMiddleware(req, res, next) {
   if (!req.originalUrl.endsWith('.html')) {
     next();
     return;
   }
+  const template = fs.readFileSync('Frontend/template.html', { encoding: 'utf-8'});
   const location = `Frontend${req.originalUrl}`;
   fs.readFile(location, {encoding: 'utf-8'}, (error, data) => {
     if (error) {

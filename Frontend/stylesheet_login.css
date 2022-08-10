@@ -21,6 +21,9 @@ input[type=submit]:hover {
 }
 
 
+.wrong {
+    border: red;
+}
 		
 
 .login-box{
@@ -28,7 +31,8 @@ input[type=submit]:hover {
         justify-content: center;
     width:50%;
         border:1px black solid;
-        margin-left:440px;
+        margin-left:auto;
+        margin-right: auto;
         margin-top:100px;
 }
 input{

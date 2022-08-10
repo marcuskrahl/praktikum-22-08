@@ -23,28 +23,66 @@
 	<meta charset="utf-8">
 	<link rel="icon" type="images/jpg" href="./imgs/img.jpg">
 
-	<title>Login|form</title>
+	<title>Sign in to Glückskeks.mms</title>
 	
 </head>
 <body>
 <div class="login-box">
 	
 <div id="loginwindow">
-    <h1>Anmelden </h1>
+    <h1>Anmelden</h1>
 	<hr>
 
-		<input type="text" placeholder= "Nutzername">
-		<input type="text" placeholder="Passwort">
-		<br>
-		<input type="submit" name="login" value="Login" id="login">
+		<input type="text" placeholder= "Nutzername" class="user">
+		<input type="password" placeholder="Passwort" class="password" id="passwort"> 
+
+		
+		<input type="submit" name="login" value="Login" id="login" onclick="login()"> <br>
+
         <br>
    
 		<br>
         <br>
-
 </div>
+
+
+
 
 
 </div>
 </body>
 </html>
+
+
+<script>
+  async function login() {
+    let username = document.querySelector (".user") .value
+    let password = document.querySelector (".password") .value
+    let body = JSON.stringify({password:password, username:username})
+    let responce = await fetch ("http://localhost:8080/api/login", {body:body, method:"post", headers: {'Content-Type':'application/json'},})
+    let ok = responce.status
+    if (ok == 200) {
+        window.localStorage.setItem ("username", username)
+        window.location = "/index.html"
+        return
+    }
+    else {
+        alert("Die angegebenen Daten wurden nicht in der Datenbank gefunden.")
+        document.querySelector (".password") .value = null
+    }
+} 
+
+
+
+
+
+
+function testegeheim() {
+if (document.getElementById("geheim").checked==true) {
+document.getElementById("ausgabe").firstChild.data=document.getElementById("passwort").value;
+}
+else {
+document.getElementById("ausgabe").firstChild.data="geheim";
+}
+}
+</script>

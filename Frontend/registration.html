@@ -21,9 +21,9 @@
 <head>
 	<link rel="stylesheet" href="stylesheet_login.css">
 	<meta charset="utf-8">
-	<link rel="icon" type="images/jpg" href="./imgs/img.jpg">
 
-	<title>Login|form</title>
+
+	
 	
 </head>
 <body>
@@ -32,15 +32,15 @@
 
 
 <div id="regristationwindow">
-    <h1>Registrieren </h1>
+    <h1>Registrieren</h1>
 	<hr>
 
-		<input type="text" placeholder= "Nutzername">
-        <input type="text" placeholder="Email-Adresse">
-		<input type="text" placeholder="Passwort">
+		<input type="text" placeholder= "Nutzername" class="user" id="username">
+        <input type="text" placeholder="Email-Adresse" class="email" id="emailadresse">
+		<input type="password" placeholder="Passwort" class="password">
         
 		<br>
-		<input type="submit" name="login" value="Registrieren" id="login">
+		<center> <input type="submit" name="login" value="Registrieren" onclick="registrieren()"> </center>
         <br>
         
 		
@@ -50,3 +50,43 @@
 </div>
 </body>
 </html>
+
+
+
+<script>
+    async function registrieren() {
+      let username = document.querySelector (".user").value
+      let email = document.querySelector (".email").value
+      let password = document.querySelector (".password").value
+      let body = JSON.stringify({password:password, email:email, username:username})
+      let responce = await fetch ("http://localhost:8080/api/registrieren", {body:body, method:"post", headers: {'Content-Type':'application/json'},})
+      let ok = responce.status
+    }
+//         if (password === '12345678') {
+//             alert('Dein gewähltes Passwort ist nicht sicher genug!')
+//         }
+//         else if (password == 123456) {
+//             alert('Dein gewähltes Passwort ist nicht sicher genug!')
+//         }
+        
+//         if (username == "" ) { //* x = Datenabfrage in DB*//
+//             alert('Dieser Nutzername ist bereits vergeben')
+//         }
+//         if (email == 'test') {
+//             alert('Diese Emailadresse wird bereits verwendet!')
+//         }
+
+//       if (ok == 200) {
+//           window.localStorage.setItem ("username", username) // username speichern, um später Prfil abrufen zu können
+//           alert('Du hast dich erfolgreich registriert')
+//           window.location = "/index.html"
+//           // Kekskono === 1
+//           // username, email, password in Datenbank
+//           return
+//       }
+//       else {
+//           alert("Die angegebenen Daten sind ungültig oder wurden bereits für eine Registrierung verwendet.")
+//           document.getElementById("emailadresse").classList.add(wrong)
+//       }
+//   } 
+//   </script>
