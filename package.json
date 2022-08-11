@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon Backend/index.js",
+    "start_lokal": "nodemon Backend/index.js",
+    "start": "node Backend/index.js",
     "test": "echo \"Error: no test specified\""
   },
   "repository": {
