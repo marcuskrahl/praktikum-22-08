@@ -33,6 +33,11 @@
 
     <input type="button" value="Jetzt Glückskeks öffnen" onclick="tausch()" id="button">
     <button type="button" onclick="Kontostand()" id="Kontostand">Kontostand anzeigen</button>
+    
+    <p>Dein aktueller Digitalkekskontostand beträgt:</p>
+    <p id="kontostand">
+      
+    </p>
 
 
     <!-- <button onclick="myFunction()" id="select" class="hidden">Spruch lesen</button> -->
@@ -144,10 +149,10 @@
 
 
  
-  
+    
 
   function Kontostand() {
-    alert('Dein aktueller Kontostand beträgt: ' + Kekskonto)
+    document.getElementById(kontostand).innerHTML = neuerKeksstand
   }
 
   function Konto(Kekskonto) {
@@ -165,11 +170,7 @@
 
 
 
-  function myFunction() {
 
-
-
-  }
   async function tausch() {
     document.getElementById("myPic").setAttribute("src", "images/Gk_links.png");
     document.getElementById("GK_rechts").classList.remove("hidden")
