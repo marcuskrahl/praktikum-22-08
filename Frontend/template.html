@@ -16,7 +16,7 @@
 		  <li><a href="/freunde.html">Freunde</a></li>
 		  <li><a href="/login.html">Sign in </a></li>
 		  <li><a href="/registration.html">Sign up</a></li>
-		  <li><a id="keksstand">>>1 Keks<<</a></li>
+		  <li><a id="keksstand">0</a></li>
 		</ul>
 	  </nav>
 	<h1>Glückskeks.mms - Dein Anbieter für digitale Glückskekse</h1>
@@ -27,7 +27,15 @@
 
 	<script>
 		
-		
+		async function dailyKeks () {
+			let username = window.localStorage.getItem(username)
+			let body = JSON.stringify({username:username})
+			let responce = await fetch ("http://localhost:8080/api/dailyKeks", {body:body, method:"post", headers: {'Content-Type':'application/json'},})	
+		}
+	
+
+
+
 		
 		async function Keksanfrage () {
 			let keksstand = 	document.getElementById("keksstand")

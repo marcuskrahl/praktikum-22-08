@@ -56,11 +56,11 @@
 
 <script>
   async function login() {
-    let username = document.querySelector (".user") .value
-    let password = document.querySelector (".password") .value
-    let body = JSON.stringify({password:password, username:username})
-    let responce = await fetch ("http://localhost:8080/api/login", {body:body, method:"post", headers: {'Content-Type':'application/json'},})
-    let ok = responce.status
+    let username = document.querySelector (".user") .value // Daten aus Eingabefeld hol
+    let password = document.querySelector (".password") .value // und in Variable packen
+    let body = JSON.stringify({password:password, username:username})  // Verpacken in Body sodass beide Variablen Kombiniert sind 
+    let responce = await fetch ("http://localhost:8080/api/login", {body:body, method:"post", headers: {'Content-Type':'application/json'},}) // Senden an Knotenpunkt /login 
+    let ok = responce.status  // definieren der Variable "OK" um den Antworrtstatus abzufragen 
     if (ok == 200) {
         window.localStorage.setItem ("username", username)
         window.location = "/index.html"

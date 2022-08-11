@@ -27,6 +27,19 @@ res.send(kekszahl.toString())
 
 
 
+	app.post('/api/dailyKeks', async function dailyKeks(req, res){
+	let userdaten = await select(db, 'userdaten');
+	let username = req.body.username
+	let user = userdaten.find(function (ZeileInDerDB){return ZeileInDerDB.username == username})
+	if (user != null) {
+		userdaten.kontostand = userdaten.kontostand + 1
+	}
+	window.setInterval(dailyKeks, 86400000)
+})
+
+
+
+
 
 
 
@@ -104,7 +117,7 @@ app.post('/api/login', async (req, res) => {
 	let userdaten = await select(db, 'userdaten');  // ALLE Nutzerdaten aus der Datenbank holen und in Array "userdaten" packen
 	let password = req.body.password
 	let username = req.body.username
-	let user = userdaten.find(function (x){x.username == username})
+	let user = userdaten.find(function (x){return x.username == username})
 	if (user != null && password == user.password){
 		res.send("passt")
 	}
