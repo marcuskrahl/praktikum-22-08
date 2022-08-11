@@ -59,7 +59,17 @@
       let body = JSON.stringify({password:password, email:email, username:username})
       let responce = await fetch ("/api/registrieren", {body:body, method:"post", headers: {'Content-Type':'application/json'},})
       let ok = responce.status
+      if (ok == 400) {
+        alert('Der Nutzername bzw. die Email werden bereits verwendet')
+        return
+      }
+      else {
+        window.location.href="login.html"
+      }
     }
+
+
+
 //         if (password === '12345678') {
 //             alert('Dein gewähltes Passwort ist nicht sicher genug!')
 //         }
