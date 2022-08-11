@@ -22,7 +22,7 @@
             <p>
              Du willst klein anfangen? Dann los
             </p>
-            <input type="text" id="versenden" placeholder="Nutzername">  <button class="kaufen" onclick="einKeks"> Jetzt abschicken</button>
+            <input type="text" id="versendenEins" placeholder="Nutzername">  <button class="kaufen" onclick="einKeks"> Jetzt abschicken</button>
         </div>
         </div>
         <hr>
@@ -42,7 +42,7 @@
               <p>
                Für Freunde.
               </p>
-              <input type="text" id="versenden" placeholder="Nutzername">   <button class="kaufen" onclick="fünfKeks"> Jetzt abschicken</button>
+              <input type="text" id="versendenFünf" placeholder="Nutzername">   <button class="kaufen" onclick="sendeKekse(5)"> Jetzt abschicken</button>
           </div>
           </div>
           <hr>
@@ -63,7 +63,7 @@
                 <p>
                   Du willst eine Menge Kekse verschenken? 
                 </p>
-                <input type="text" id="versenden" placeholder="Nutzername">   <button class="kaufen" onclick="fünfzigKeks"> Jetzt abschicken</button>
+                <input type="text" id="versendenFünfzig" placeholder="Nutzername">   <button class="kaufen" onclick="fünfzigKeks"> Jetzt abschicken</button>
             </div>
             </div>
             <hr>
@@ -83,11 +83,27 @@
                   <p>
                     Ganz, ganz, ganz viele Kekse für jemanden.
                   </p>
-                  <input type="text" id="versenden" placeholder="Nutzername">   <button class="kaufen" onclick="hunKeks"> Jetzt abschicken</button>
+                  <input type="text" id="versendenHun" placeholder="Nutzername">   <button class="kaufen" onclick="hunKeks"> Jetzt abschicken</button>
               </div>
               </div>
               
         </div>
         
-        
+        <script>
+            function einKeks()
+                let EinKeks = document.getElementById('versendenEins').innerHTML
+                // "EinKeks" erst ins Backend und dann in die Datenbank
+                
+                function einKeks()
+                let fünfKeks = document.getElementById('versendenFünf').innerHTML
+                // "fünfKeks" erst ins Backend und dann in die Datenbank
+                
+                function einKeks()
+                let fünfzigKeks = document.getElementById('versendenFünfzig').innerHTML
+                // "fünfzigKeks" erst ins Backend und dann in die Datenbank
+                
+                function einKeks()
+                let hunKeks = document.getElementById('versendenHun').innerHTML
+                // "hunKeks" erst ins Backend und dann in die Datenbank
+        </script>
         

@@ -13,6 +13,32 @@ const templateMiddleware = require('./template_middleware');
 app.use(express.json())
 
 
+
+app.post('/api/keksstand', async function (req, res){
+	let userdaten =  await select(db, 'userdaten'); 
+	let username = req.body.username
+	let user = userdaten.find(function (ZeileInDerDB){return ZeileInDerDB.username == username})
+	let kekszahl = 0
+	if (user != null) {
+		kekszahl = user.kontostand
+	}
+res.send(kekszahl.toString())
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Hier werden die Sprüche ausgewählt */
 
 app.get('/api/', function (req, res) {

@@ -21,5 +21,32 @@
 	  </nav>
 	<h1>Glückskeks.mms - Dein Anbieter für digitale Glückskekse</h1>
 
+
+
 	{{content}}
+
+	<script>
+		
+		
+		
+		async function Keksanfrage () {
+			let keksstand = 	document.getElementById("keksstand")
+			let username = window.localStorage.getItem ("username")
+		if (username == null) {
+		keksstand.innerHTML = 'nicht eingeloggt'
+		return
+		}
+		let body = JSON.stringify({username:username})
+		let responce = await fetch ("http://localhost:8080/api/keksstand", {body:body, method:"post", headers: {'Content-Type':'application/json'},})
+		let neuerKeksstand = await responce.text()
+		keksstand.innerHTML = neuerKeksstand
+		} 
+
+		window.setInterval(Keksanfrage, 1000)
+	</script>
+</body>
+
 </html>
+
+
+
