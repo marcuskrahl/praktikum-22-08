@@ -28,12 +28,12 @@
 	<script>
 		
 		async function dailyKeks () {
-			let username = window.localStorage.getItem(username)
+			let username = window.localStorage.getItem("username")
 			let body = JSON.stringify({username:username})
 			let responce = await fetch ("http://localhost:8080/api/dailyKeks", {body:body, method:"post", headers: {'Content-Type':'application/json'},})	
 		}
 	
-
+		dailyKeks()
 
 
 		
@@ -48,9 +48,13 @@
 		let responce = await fetch ("http://localhost:8080/api/keksstand", {body:body, method:"post", headers: {'Content-Type':'application/json'},})
 		let neuerKeksstand = await responce.text()
 		keksstand.innerHTML = neuerKeksstand
+		Kekskontostand = neuerKeksstand
 		} 
 
 		window.setInterval(Keksanfrage, 1000)
+
+		let Kekskontostand = 0
+		
 	</script>
 </body>
 

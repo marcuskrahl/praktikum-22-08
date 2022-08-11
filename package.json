@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node Backend/index.js",
+    "start": "nodemon Backend/index.js",
     "test": "echo \"Error: no test specified\""
   },
   "repository": {
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/marcuskrahl/praktikum-22-08#readme",
   "dependencies": {
     "express": "^4.18.1",
+    "nodemon": "^2.0.19",
     "sqlite3": "^5.0.8"
   }
 }

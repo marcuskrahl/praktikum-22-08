@@ -27,15 +27,26 @@ res.send(kekszahl.toString())
 
 
 
+
+
+
 	app.post('/api/dailyKeks', async function dailyKeks(req, res){
 	let userdaten = await select(db, 'userdaten');
 	let username = req.body.username
 	let user = userdaten.find(function (ZeileInDerDB){return ZeileInDerDB.username == username})
-	if (user != null) {
-		userdaten.kontostand = userdaten.kontostand + 1
+	let gestern = Date.now () -1000 * 60 * 60 * 24
+	if (user != null && (user.letztesZugriffsdatum ?? 1) < gestern) {
+		
+		user.kontostand = user.kontostand + 1
+		user.letztesZugriffsdatum = Date.now()
+		await update(db, 'userdaten', user)
+		
 	}
-	window.setInterval(dailyKeks, 86400000)
+
 })
+
+
+
 
 
 
@@ -58,12 +69,20 @@ app.get('/api/', function (req, res) {
   res.send(`<h1>${new Date}</h1>`);
 });
 
-app.get('/test/', async function testspruch (req, res) {
+app.post('/api/test/', async function testspruch (req, res) {
   let sprüche = await select(db, 'Sprueche');
-
+  let userdaten =  await select(db, 'userdaten'); 
+  let username = req.body.username
+  let user = userdaten.find(function (ZeileInDerDB){return ZeileInDerDB.username == username})
+  let keksstand = userdaten.kontostand 
+  userdaten.kontostand = userdaten.kontostand - 1
   var spruchselect = sprüche[Math.floor(Math.random() * sprüche.length)]
   res.send(spruchselect.Sprueche + '~' + spruchselect.Autor);
+	user.kontostand = user.kontostand - 1
+	await update(db, 'userdaten', user)
 })
+
+
 
 
 /* Registrierungsstuff */

@@ -32,23 +32,25 @@
     </div>
 
     <input type="button" value="Jetzt Glückskeks öffnen" onclick="tausch()" id="button">
-    <button type="button" onclick="Kontostand()" id="Kontostand">Kontostand anzeigen</button>
+    <button type="button" onclick="abc()" id="Kontostand">Kontostand aktualisieren</button>
+    
+
     
     <p>Dein aktueller Digitalkekskontostand beträgt:</p>
-    <p id="kontostand">
+    <strong>
+      <p id="kontostand">
       
-    </p>
+      </p>
+    </strong>
 
 
     <!-- <button onclick="myFunction()" id="select" class="hidden">Spruch lesen</button> -->
 
     <p>
-      Wenn du noch mehr Glückkekse digital öffnen willst, dann kaufe bei uns ein! Für jeden Keks, den du bei uns
-      bestellst, kannst du kostenlos jeden Tag einen weiteren öffnen. <br> Trage hier ein, wie viele Kekse du bestellt
-      hast:
+Du willst mehr Kekse öffnen? Dann kaufe bei uns im Shop ein oder lasse dir von Freunden welche schenken!
     </p>
     <span id="addkeks">
-      Trage hier deine Bestellnummer ein(sechsstellig):</p><input name="Kaufnummer" type="text" id="Kauf_Nummer" maxlength="3">
+      Trage hier deinen Geschenkcode ein:</p><input name="Kaufnummer" type="text" id="Kauf_Nummer" maxlength="3">
       <button type="button" onclick="KaufNummer()" id="Button1">Senden</button>
     </span>
 
@@ -84,7 +86,7 @@
   let eingelösteBestellnummern = [];
   
 
-  var Kekskonto = 1
+
   function KaufNummer() {
     let Kauf_Nummer = document.getElementById('Kauf_Nummer').value;
     console.log(eingelösteBestellnummern)
@@ -165,8 +167,27 @@
 
 
 
+  async function abc () {
+			let keksstand = 	document.getElementById("keksstand")
+			let username = window.localStorage.getItem ("username")
+		if (username == null) {
+		keksstand.innerHTML = 'nicht eingeloggt'
+		return
+		}
+		let body = JSON.stringify({username:username})
+		let responce = await fetch ("/api/keksstand", {body:body, method:"post", headers: {'Content-Type':'application/json'},})
+		let Kontostand = await responce.text()
+    console.log(Kontostand)
+		if (Kontostand >= 1) {
+      document.getElementById('kontostand').innerHTML = Kontostand
+		} 
+    else {
+      document.getElementById('kontostand').innerHTML = 'Du hast aktuell keine Kekse :('
+    }
+  }
 
-  
+
+
 
 
 
@@ -174,31 +195,26 @@
   async function tausch() {
     document.getElementById("myPic").setAttribute("src", "images/Gk_links.png");
     document.getElementById("GK_rechts").classList.remove("hidden")
-    console.log(Kekskonto)
-    if (Kekskonto === 0) {
-      alert('Aktuell hast du alle deine Kekse verbraucht. Wenn du noch mehr Kekse öffnen willst, kannst du dir im Onlineshop neue kaufen!')
+ 
+    if (Kekskontostand < 1) {
+      alert('Aktuell hast du alle deine Kekse verbraucht. Wenn du noch mehr Kekse öffnen willst, kannst du dir im Onlineshop neue kaufen!') //ersetzen
+      return
     } else {
-      Kekskonto = -1 + Kekskonto;
-      console.log(Kekskonto)
-    }
+      Kekskontostand = -100 + Kekskontostand;
+    
+		}
+	
+    
     document.getElementById("result").classList.remove("hidden")
 
-
-    var text = [
-      "Hier könnte Ihre Werbung stehen. ~ Unbekannt",
-      "„Wer lächelt statt zu toben, ist immer der Stärkere.“ ~ japanische Weisheit",
-      "„Gewohnheiten sind zuerst Spinnweben - dann Drähte.“ ~ Alte fernöstliche Weisheit",
-      "„Betrachte den Fluss Deines Lebens und erkenne, wie viele Ströme in ihn münden, die Dich nähren und unterstützen.“ ~ Thich Nhat Hanh ",
-      "„Der Mensch ist dazu geboren, großes zu leisten, wenn er versteht, sich selbst zu besiegen.“ ~ Bruce Lee"
-    ];
-
-    var response = await fetch('/test/')
+    let username = window.localStorage.getItem ("username")
+    let body = JSON.stringify({username:username})
+    var response = await fetch ("/api/test", {body:body, method:"post", headers: {'Content-Type':'application/json'},})
     var auswahl = await response.text()
+    Keksanfrage()
     document.getElementById("result").innerHTML = auswahl
-    document.getElementById("select").classList.add("hidden")
-    document.getElementByID("result").classList.add("Hintergrund")
-
-
+    // document.getElementById("select").classList.add("hidden")
+    document.getElementById("result").classList.add("Hintergrund")
   }
 
 </script>
