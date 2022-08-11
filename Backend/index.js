@@ -93,14 +93,24 @@ app.post('/api/registrieren', async function (req, res) {
 	const userdaten = req.body; //hat die form { Autor: "Albert Einstein", Sprueche: "e=mc²"}
 	// await insert(db, 'userdaten', spruch);
 	console.log(userdaten)
-	res.send('hinzugefügt');
+	// res.send('hinzugefügt');
 	let Nutzername = userdaten.username // Ziehen des NUtzernamens aus dem Eingabefeld im FE und als "username"
 	let email = userdaten.email // Ziehen der eingegebenem Emailadresse aus dem Eingabefeld und als "email" speichern
  	let password = userdaten.password // Passwort ziehen und als "password" speichern
-	 console.log(username)
+	 console.log(Nutzername)
 	let Nutzerdaten = await select(db, 'userdaten'); // Ziehen der Daten aus der Datenbank "userdaten" und packen dieser in den Array "Nutzerdaten" 
-	let Nutzernamen = Nutzerdaten.find(elem => elem.username = Nutzername) // Suchen in "Nutzerdaten" nach "Nutzername"
+	let Nutzernamen = Nutzerdaten.find(elem => elem.username == Nutzername || elem.email == email) // Suchen in "Nutzerdaten" nach "Nutzername"
 	console.log(Nutzernamen)
+	if (Nutzernamen != null) { // Böse
+		res.status(400)
+		res.send('test')
+	}
+	else {
+		res.status(200)
+		res.send('tetstzdauisdih')
+		let body = ({password:password, email:email, username:Nutzername, kontostand:1})
+		await insert(db, 'userdaten', body)
+	}
 
 	})
 
