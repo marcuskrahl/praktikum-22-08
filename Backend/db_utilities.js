@@ -53,9 +53,9 @@ function update(db, table, entity) {
     });
 }
 
-function deleteRow(db, table, rowId) {
+function deleteRow(db, table, entity) {
     return new Promise((resolve, reject) => {
-        db.exec(`DELETE FROM ${table} WHERE rowid = ${rowId}`, (err, done) => {
+        db.exec(`DELETE FROM ${table} WHERE rowid = ${entity.rowId}`, (err, done) => {
             if (err) {
                 reject(err);
             } else {
