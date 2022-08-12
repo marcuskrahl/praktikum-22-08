@@ -29,7 +29,7 @@
         
         <div class="Produkt inverse" >
           <div class="Produktbild">
-            <img src="images/GK.jpg">
+            <img src="images/5.png">
           </div>
           
           <div class="Produktbeschreibung">
@@ -50,7 +50,7 @@
         
           <div class="Produkt">
             <div class="Produktbild">
-              <img src="images/GK.jpg">
+              <img src="images/50.png">
             </div>
             
             <div class="Produktbeschreibung">
@@ -70,7 +70,7 @@
         
             <div class="Produkt inverse" >
               <div class="Produktbild">
-                <img src="images/GK.jpg">
+                <img src="images/100.png">
               </div>
               
               <div class="Produktbeschreibung">
@@ -84,12 +84,49 @@
                     Ganz, ganz, ganz viele Kekse für jemanden.
                   </p>
                   <input type="text" id="versenden100" placeholder="Nutzername">   <button class="kaufen" onclick="sendeKekse(100)"> Jetzt abschicken</button>
+                  <hr>
               </div>
               </div>
-              
+              <br> <br>
         </div>
         
+
+        <div class="freundesanzeige" id="freundesanzeige">
+
+
+
+
         <script>
+          let alterInhalt = ''
+         async function user() {
+            let responce = await fetch ("/api/abfrage")
+            let antwort = await responce.json()
+            // console.log(antwort)
+          
+            let neuerInhalt = ''
+
+            for(let user of antwort) {
+              console.log(user)
+              neuerInhalt = neuerInhalt + ' <div class="user"><strong><u> ' + user.username  + ' </u></strong><br>Kekse: ' + user.kontostand + ' <br>Kekse geöffnet: ' + user.geöffnet + ' <br>Kekse verschenkt: ' + user.verschenkt + '</div>'
+
+            }
+            if (alterInhalt != neuerInhalt) {
+              document.getElementById('freundesanzeige').innerHTML = neuerInhalt
+              alterInhalt = neuerInhalt
+            }
+
+           
+          }
+          window.setInterval(user, 1000)
+
+
+
+
+
+
+
+
+
 
         
         async function sendeKekse(anzahl) {
@@ -100,10 +137,10 @@
           let responce = await fetch ("/api/versenden", {body:body, method:"post", headers: {'Content-Type':'application/json'},}) // Senden an Knotenpunkt /versenden 
 
           let ok = responce.status
-          if (ok = 200) {
-            alert('Du hast' + anzahl + 'Kekse an' + Empfänger + 'gesendet')
+          if (ok == 200) {
+            alert('Du hast ' + anzahl + ' Kekse an ' + Empfänger + ' gesendet')
           }
-          else {
+          if (ok == 400) {
             alert('Das Versenden war nicht erfolgreich. Bitte überprüfe deinen Kekskontostand und die eingetragenen Daten!')
           }
 

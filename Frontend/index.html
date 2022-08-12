@@ -31,17 +31,18 @@
       <img src="images/GK_rechts.png" id="GK_rechts" class="hidden"> <br>
     </div>
 
-    <input type="button" value="Jetzt Glückskeks öffnen" onclick="tausch()" id="button">
-    <button type="button" onclick="abc()" id="Kontostand">Kontostand aktualisieren</button>
+
+    <a onclick="tausch()"  class="button10">Jetzt öffnen</a>
+    <!-- <button type="button" onclick="abc()" id="Kontostand">Kontostand aktualisieren</button> -->
     
 
     
-    <p>Dein aktueller Digitalkekskontostand beträgt:</p>
+    <!-- <p>Dein aktueller Digitalkekskontostand beträgt:</p>
     <strong>
       <p id="kontostand">
       
       </p>
-    </strong>
+    </strong> -->
 
 
     <!-- <button onclick="myFunction()" id="select" class="hidden">Spruch lesen</button> -->
@@ -52,6 +53,7 @@ Du willst mehr Kekse öffnen? Dann kaufe bei uns im Shop ein oder lasse dir von 
     <span id="addkeks">
       Trage hier deinen Geschenkcode ein:</p><input type="text" id="Kauf_Nummer" maxlength="10">
       <button type="button" onclick="KaufNummer()">Senden</button>
+      <p id="response"></p>
     </span>
 
 
@@ -90,8 +92,18 @@ Du willst mehr Kekse öffnen? Dann kaufe bei uns im Shop ein oder lasse dir von 
   async function KaufNummer() {
     let Kauf_Nummer = document.getElementById('Kauf_Nummer').value;
     let username = window.localStorage.getItem("username")
-    let body = JSON.stringify({Code:Kauf_Nummer, user:username})
+    let body = JSON.stringify({code:Kauf_Nummer, username:username})
 		let responce = await fetch ("/api/code", {body:body, method:"post", headers: {'Content-Type':'application/json'},})
+    Keksanfrage()
+
+    if (responce.status == 200) {
+  
+     document.getElementById('response').innerHTML = 'Du hast erfolgreich einen Gutscheincode eingelöst!'
+      }
+    else {
+      alert('Das hat leider nicht geklappt! Bitte überprüfe deine angegebenen Daten!')
+    }
+
 }
 
     

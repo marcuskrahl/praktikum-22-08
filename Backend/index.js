@@ -53,24 +53,43 @@ app.post('/api/code', async function (req, res){
 	let codes = await select (db, 'Geschenkcodes');
 	let userdaten =  await select(db, 'userdaten');
 	let code = req.body.code
+
+	if (code == null) {
+		res.status(400)
+		res.send('')
+		return
+	} 
 	let user = req.body.username
+	if (user == null) {
+		res.status(400)
+		res.send('')
+		return
+	} 
 	let finden = codes.find(function(ZeileInDerDB){return ZeileInDerDB.code == code})
-	let nutzer = userdaten.find(function(ZeileInDerDB){return ZeileInDerDB.user == user})
+	let nutzer = userdaten.find(function(ZeileInDerDB){return ZeileInDerDB.username == user})
 	if (finden != null) {
-		
+
 			nutzer.kontostand = nutzer.kontostand + finden.codewert
 			await update(db, 'userdaten', nutzer)
 			await deleteRow(db, 'Geschenkcodes', finden)
-		
+			res.status(200)
+			res.send('')
+			
 	}
-
+	else {
+		res.status(400)
+		res.send('')
+	}
 
 })
 
 
 
 
-
+app.get('/api/abfrage', async function (req, res) {
+let userdaten = await select (db, 'userdaten');
+res.send(userdaten)
+})
 
 
 
@@ -95,6 +114,7 @@ app.post('/api/test/', async function testspruch (req, res) {
   var spruchselect = sprüche[Math.floor(Math.random() * sprüche.length)]
   res.send(spruchselect.Sprueche + '~' + spruchselect.Autor);
 	user.kontostand = user.kontostand - 1
+	user.geöffnet = user.geöffnet + 1
 	await update(db, 'userdaten', user)
 })
 
@@ -107,23 +127,28 @@ let empfänger = Daten.empfänger
 let userdaten = await select(db, 'userdaten');
 let findenV = userdaten.find(elem => elem.username == versender)
 let findenE = userdaten.find(elem => elem.username == empfänger)
-if (findenV != null && findenE != null) {
+	if (findenE == null) {
+		res.status(400)
+		res.send('')
+	return
+	}
+	if (findenV != null && findenE != null) {
 	
-	if (findenV.kontostand >= Kekse) {
-		res.status(200)
-		findenE.kontostand = findenE.kontostand + Kekse
-		await update(db, 'userdaten', findenE)
-		findenV.kontostand = findenV.kontostand - Kekse
-		await update(db,'userdaten',findenV)
+		if (findenV.kontostand >= Kekse) {	
+
+			findenE.kontostand = findenE.kontostand + Kekse
+			await update(db, 'userdaten', findenE)
+			findenV.verschenkt = findenV.verschenkt + Kekse
+			findenV.kontostand = findenV.kontostand - Kekse
+			await update(db,'userdaten',findenV)
+			res.status(200)
+			res.send('')
 	}
 	else {
-		res.status(400)
+	res.status(400)
+	res.send('')
 	}
 }	
-else {
-	res.Status(400)
-}
-res.send('')
 })
 
 
@@ -214,9 +239,4 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
 // db.close();
-
-
-
-
-
 

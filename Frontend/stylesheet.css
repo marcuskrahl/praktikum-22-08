@@ -107,3 +107,23 @@ text-align: center;
   display: flex;
   justify-content: center;
 }
+
+
+
+.button10{
+	display:inline-block;
+	margin:20px;
+	text-decoration:none;
+	font-family:Arial;
+	font-size:16px;
+	border:1px solid #e20074;
+	border-radius:3px;
+	color:#e20074;
+	font-weight:bold;
+	padding:10px 15px;
+	box-shadow:inset 0px 0px 1px #fff;
+}
+.button10:hover{
+	background-color:#e20074;
+  color: #fff;
+}

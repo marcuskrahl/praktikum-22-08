@@ -37,3 +37,25 @@
     cursor: pointer;
     opacity: 0.75;
   }
+
+
+
+
+.user {
+    border-color: rgba(0, 0, 0, 0.2);
+    border-width: 2px;
+    border-style: solid;
+    width: 250px;
+}
+
+
+.freundesanzeige {
+    display: grid;
+    justify-content: center;
+    gap: 10px;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(6, 1fr);
+    justify-items: center;
+    grid-auto-flow: dense;
+
+}
