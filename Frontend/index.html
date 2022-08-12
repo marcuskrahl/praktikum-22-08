@@ -50,8 +50,8 @@
 Du willst mehr Kekse öffnen? Dann kaufe bei uns im Shop ein oder lasse dir von Freunden welche schenken!
     </p>
     <span id="addkeks">
-      Trage hier deinen Geschenkcode ein:</p><input name="Kaufnummer" type="text" id="Kauf_Nummer" maxlength="3">
-      <button type="button" onclick="KaufNummer()" id="Button1">Senden</button>
+      Trage hier deinen Geschenkcode ein:</p><input type="text" id="Kauf_Nummer" maxlength="10">
+      <button type="button" onclick="KaufNummer()">Senden</button>
     </span>
 
 
@@ -83,66 +83,22 @@ Du willst mehr Kekse öffnen? Dann kaufe bei uns im Shop ein oder lasse dir von 
 
 
 
-  let eingelösteBestellnummern = [];
+
   
 
 
-  function KaufNummer() {
+  async function KaufNummer() {
     let Kauf_Nummer = document.getElementById('Kauf_Nummer').value;
-    console.log(eingelösteBestellnummern)
-    let eingelöst = eingelösteBestellnummern.find(Nummer=>Nummer===Kauf_Nummer)
+    let username = window.localStorage.getItem("username")
+    let body = JSON.stringify({Code:Kauf_Nummer, user:username})
+		let responce = await fetch ("/api/code", {body:body, method:"post", headers: {'Content-Type':'application/json'},})
+}
 
-    if (eingelöst) {
-      alert('Diese Nummer ist nicht gültig! Das liegt entweder daran, dass zu dem Code kein Kauf zugeordnet werden konnte oder der Code bereits abgelaufen ist bzw. benutzt wurde')
+    
     
 
     
 
-    } else {
-      eingelösteBestellnummern.push(...[Kauf_Nummer])
-
-      switch (parseInt(Kauf_Nummer.charAt(0))) {
-        case 1:
-          Kekskonto = Kekskonto + 1;
-          alert('Erfolgreich 1 Keks hinzugefügt')
-          break;
-        case 2:
-          Kekskonto = Kekskonto + 2
-          alert('Erfolgreich 2 Kekse hinzugefügt')
-          break;
-        case 3:
-          Kekskonto = Kekskonto + 3
-          alert('Erfolgreich 3 Kekse hinzugefügt')
-          break;
-        case 4:
-          Kekskonto = Kekskonto + 4
-          alert('Erfolgreich 4 Kekse hinzugefügt')
-          break;
-        case 5:
-          Kekskonto = Kekskonto + 5
-          alert('Erfolgreich 5 Kekse hinzugefügt')
-          break;
-        case 6:
-          Kekskonto = Kekskonto + 6;
-          alert('Erfolgreich 6 Kekse hinzugefügt')
-          break;
-        case 7:
-          Kekskonto = Kekskonto + 7;
-          alert('Erfolgreich 7 Kekse hinzugefügt')
-        case 8:
-          Kekskonto = Kekskonto + 8;
-          alert('Erfolgreich 8 Kekse hinzugefügt')
-        case 9:
-          Kekskonto = Kekskonto + 9;
-          alert('Erfolgreich 9 Kekse hinzugefügt')
-        default:
-          alert('Du musst eine Nummer eingeben!');
-      }
-    }
-
-      return Kekskonto;
-    }
-  
 
 
 

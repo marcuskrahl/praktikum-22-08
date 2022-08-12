@@ -49,7 +49,23 @@ res.send(kekszahl.toString())
 
 
 
+app.post('/api/code', async function (req, res){
+	let codes = await select (db, 'Geschenkcodes');
+	let userdaten =  await select(db, 'userdaten');
+	let code = req.body.code
+	let user = req.body.username
+	let finden = codes.find(function(ZeileInDerDB){return ZeileInDerDB.code == code})
+	let nutzer = userdaten.find(function(ZeileInDerDB){return ZeileInDerDB.user == user})
+	if (finden != null) {
+		
+			nutzer.kontostand = nutzer.kontostand + finden.codewert
+			await update(db, 'userdaten', nutzer)
+			await deleteRow(db, 'Geschenkcodes', finden)
+		
+	}
 
+
+})
 
 
 
@@ -81,6 +97,36 @@ app.post('/api/test/', async function testspruch (req, res) {
 	user.kontostand = user.kontostand - 1
 	await update(db, 'userdaten', user)
 })
+
+
+app.post('/api/versenden', async function (req, res){
+let Daten = req.body;
+let versender = Daten.versender
+let Kekse = Daten.keksstand
+let empfänger = Daten.empfänger
+let userdaten = await select(db, 'userdaten');
+let findenV = userdaten.find(elem => elem.username == versender)
+let findenE = userdaten.find(elem => elem.username == empfänger)
+if (findenV != null && findenE != null) {
+	
+	if (findenV.kontostand >= Kekse) {
+		res.status(200)
+		findenE.kontostand = findenE.kontostand + Kekse
+		await update(db, 'userdaten', findenE)
+		findenV.kontostand = findenV.kontostand - Kekse
+		await update(db,'userdaten',findenV)
+	}
+	else {
+		res.status(400)
+	}
+}	
+else {
+	res.Status(400)
+}
+res.send('')
+})
+
+
 
 
 
