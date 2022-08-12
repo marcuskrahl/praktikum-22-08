@@ -48,7 +48,8 @@
     <!-- <button onclick="myFunction()" id="select" class="hidden">Spruch lesen</button> -->
 
     <p>
-Du willst mehr Kekse öffnen? Dann kaufe bei uns im Shop ein oder lasse dir von Freunden welche schenken!
+Du willst mehr Kekse öffnen? Dann hinterlasse uns eine Spende, lasse dir von Freunden welche schenken oder hole dir täglich einen Gratiskeks ab.<br>
+<button type="button" onclick="dailyKeks()">Täglichen Keks abholen</button>
     </p>
     <span id="addkeks">
       Trage hier deinen Geschenkcode ein:</p><input type="text" id="Kauf_Nummer" maxlength="10">
@@ -99,9 +100,11 @@ Du willst mehr Kekse öffnen? Dann kaufe bei uns im Shop ein oder lasse dir von 
     if (responce.status == 200) {
   
      document.getElementById('response').innerHTML = 'Du hast erfolgreich einen Gutscheincode eingelöst!'
+     document.getElementById('response').classList.add(green)
       }
     else {
-      alert('Das hat leider nicht geklappt! Bitte überprüfe deine angegebenen Daten!')
+      document.getElementById('response').innerHTML = 'Das hat leider nicht funktioniert. Bitte überprüfe deine eingegebenen Daten!'
+      document.getElementById('response').classList.add(red)
     }
 
 }
@@ -161,13 +164,14 @@ Du willst mehr Kekse öffnen? Dann kaufe bei uns im Shop ein oder lasse dir von 
 
 
   async function tausch() {
-    document.getElementById("myPic").setAttribute("src", "images/Gk_links.png");
-    document.getElementById("GK_rechts").classList.remove("hidden")
+
  
     if (Kekskontostand < 1) {
       alert('Aktuell hast du alle deine Kekse verbraucht. Wenn du noch mehr Kekse öffnen willst, kannst du dir im Onlineshop neue kaufen!') //ersetzen
       return
     } else {
+      document.getElementById("myPic").setAttribute("src", "images/Gk_links.png");
+    document.getElementById("GK_rechts").classList.remove("hidden")
       Kekskontostand = -100 + Kekskontostand;
     
 		}

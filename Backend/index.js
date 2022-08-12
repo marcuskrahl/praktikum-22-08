@@ -40,9 +40,14 @@ res.send(kekszahl.toString())
 		user.kontostand = user.kontostand + 1
 		user.letztesZugriffsdatum = Date.now()
 		await update(db, 'userdaten', user)
+		res.status(200)
+		res.send('')
 		
 	}
-
+	else {
+		res.status(400)
+		res.send('')
+	}
 })
 
 
